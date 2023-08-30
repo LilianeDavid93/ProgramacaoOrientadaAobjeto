@@ -10,8 +10,7 @@ public class Exercicio4 {
 
 	        int soma = A + Z;
 
-	        System.out.println("Valor da soma: " + soma);		
-
+	        System.out.println("Valor da soma: " + soma);
 	}
 
 }

@@ -16,6 +16,7 @@ public class BalancoTrimestral3 {
 		
 		System.out.println("Os gastos trimestrais foram " + gastosTrimestrais);
 		
+		
 	}
 
 }

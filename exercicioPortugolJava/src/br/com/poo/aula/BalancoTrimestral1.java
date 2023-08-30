@@ -12,7 +12,7 @@ public class BalancoTrimestral1 {
 		soma = gastosJaneiro + gastosFevereiro + gastosMarco;
 		
 		Integer gastosTrimestre = soma;		
-		System.out.println("Os gastos trimestrais foram:  " + soma);
+		System.out.println("Os gastos trimestrais foram: " + soma);
 		
 
 	}
