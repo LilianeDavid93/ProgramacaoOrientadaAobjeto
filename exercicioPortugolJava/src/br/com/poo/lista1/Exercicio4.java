@@ -17,6 +17,7 @@ public class Exercicio4 {
 		F = (C * 1.8) + 32;
 		System.out.println(C + "º Celsius é igual a " + F + "º Fahrenheit. \n");
 
+		sc.close();
 	}
 
 }

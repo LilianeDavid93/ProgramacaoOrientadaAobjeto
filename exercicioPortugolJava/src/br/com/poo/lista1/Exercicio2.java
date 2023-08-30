@@ -23,5 +23,6 @@ public class Exercicio2 {
 		};
 		System.out.println("O tempo total de via meu e dos meus colegas e: " + total);
 			
+		sc.close();
 }
 }
