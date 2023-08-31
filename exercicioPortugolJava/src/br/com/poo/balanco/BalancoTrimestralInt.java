@@ -1,6 +1,6 @@
-package br.com.poo.aula;
+package br.com.poo.balanco;
 
-public class BalancoTrimestral1 {
+public class BalancoTrimestralInt {
 
 	public static void main(String[] args) {
 		
