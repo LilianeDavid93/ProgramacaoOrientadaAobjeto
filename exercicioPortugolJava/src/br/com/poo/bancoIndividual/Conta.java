@@ -20,7 +20,6 @@ public class Conta {
 	public Conta() {
 
 	}
-	
 
 	// metodos da classe
 	public boolean depositar(double valor) {
