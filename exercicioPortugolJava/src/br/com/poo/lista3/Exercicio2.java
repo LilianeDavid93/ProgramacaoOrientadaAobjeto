@@ -13,7 +13,7 @@ public class Exercicio2 {
 		int sorteio = (int) Math.random();
 
 		int[] idade = new int[20];
-		int aux = 0;
+		// int aux = 0;
 
 		for (int i = 0; i < 20; i++) {
 
@@ -45,7 +45,5 @@ public class Exercicio2 {
 		}
 		System.out.println("Volte sempre!");
 
-		// imprime o número gerado na tela
-		// System.out.println("O número gerado é: " + numRandom);
 	}
 }
