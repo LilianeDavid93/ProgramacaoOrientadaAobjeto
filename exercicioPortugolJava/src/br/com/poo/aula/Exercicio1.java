@@ -18,7 +18,7 @@ public class Exercicio1 {
 		System.out.print("Digite seu sobrenome: \n");
 		sobrenome = sc.next();
 		
-		System.out.println("Meu nome e\t" + nome + "\t " + sobrenome);
+		System.out.println("Meu nome " + nome + "\t " + sobrenome);
 	
 	}
 

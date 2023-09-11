@@ -9,37 +9,26 @@ public class BalancoTrimestral {
 	public static Logger logger = Logger.getLogger(BalancoTrimestral.class.getName());
 
 	public static void main(String[] args) {
-
-//		BalancoTrimestralInt bti = new BalancoTrimestralInt();
-//
-//		bti.soma();
-//		bti.soma(1);
-//		bti.soma(10, 50);
-//
-//		logger.log(Level.INFO, "A soma e  " + bti.soma());
-//
-//		BalancoTrimestralDoub btd = new BalancoTrimestralDoub();
-//
-//		btd.soma();
-//		btd.soma(100.000, 10);
-//		btd.soma(10, 50);
-//
-//		logger.log(Level.INFO, "A soma dos meses sao: " + btd.soma());
-//
-//		BalancoTrimestralBig big = new BalancoTrimestralBig();
-//
-//		big.soma();
-//		big.soma(new BigDecimal(100.00));
-//		big.soma(new BigDecimal(50.00),new BigDecimal(550.00));
-//		big.soma(new BigDecimal(100.00),new BigDecimal(50.00),new BigDecimal(1000));
-//
-//		logger.log(Level.INFO, "A soma dos meses sao: " + big.soma());
-
-		BalancoAnual bs = new BalancoAnual();
 		
-		
-		System.out.println(bs);	
-		
-	}
-
+				BalancoTrimestralInt bti = new BalancoTrimestralInt();
+				bti.soma();
+				bti.soma(10000);
+				bti.soma(10, 50);	
+				bti.soma(10, 50, 2900);
+				logger.log(Level.INFO, "A soma e  " + bti.soma());
+				
+				BalancoTrimestralDoub btd = new BalancoTrimestralDoub();
+				btd.soma();
+				btd.soma(258);
+				btd.soma(5000, 3000);
+				btd.soma(0, 0, 10);
+				logger.log(Level.INFO, "A soma dos meses sao: " + btd.soma());
+				
+				BalancoTrimestralBig big = new BalancoTrimestralBig();
+				big.soma();
+				big.soma(new BigDecimal(10000));
+				big.soma(new BigDecimal(100), new BigDecimal(50));
+				big.soma(new BigDecimal(100), new BigDecimal(50), new BigDecimal(50000));
+				logger.log(Level.INFO, "A soma dos meses sao: " + big.soma());
+			}
 }

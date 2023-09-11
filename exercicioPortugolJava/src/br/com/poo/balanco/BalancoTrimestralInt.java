@@ -1,7 +1,10 @@
 package br.com.poo.balanco;
 
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import br.com.poo.bancoIndividual.Util;
 
 public class BalancoTrimestralInt {
 
@@ -10,32 +13,34 @@ public class BalancoTrimestralInt {
 	private Integer gastosMarco = 17000;
 		
 	private Integer somaTotal = gastosJaneiro + gastosFevereiro + gastosMarco;
-	private static Logger logger = Logger.getLogger(BalancoTrimestralInt.class.getName());
+	private DecimalFormat df = new DecimalFormat("#,###.00");
+	private Logger customLogger = Util.setupLogger();
 
 	public int soma() {
-		String mensagem = String.format("O balanço trimestral é de R$ %d", somaTotal);
-		logger.log(Level.INFO, mensagem);
+		Util.customizer();
+		customLogger.log(Level.INFO, () -> "O balanço trimestral é de R$ " + df.format(somaTotal));
 		return somaTotal;
 	}
-
+	
 	public int soma(int janeiro) {
-		String mensagem = String.format("Os gastos de janeiro foi R$ %d", janeiro);
-		logger.log(Level.INFO, mensagem);
+		Util.customizer();
+		customLogger.log(Level.INFO, () -> "O gasto de janeiro foi de R$ " + df.format(janeiro));
 		return janeiro;
 	}
-
+	
 	public int soma(int janeiro, int fevereiro) {
+		Util.customizer();
 		int somaBi = janeiro + fevereiro;
-		String mensagem = String.format("O balanço bimestral é de R$ %d", somaBi);
-		logger.log(Level.INFO, mensagem);
+		customLogger.log(Level.INFO, () -> "O gasto do primeiro bimestre foi de R$ " + df.format(somaBi));
 		return somaBi;
 	}
-
+	
 	public int soma(int janeiro, int fevereiro, int marco) {
+		Util.customizer();
 		int somaTri = janeiro + fevereiro + marco;
-		String mensagem = String.format("O balanço trimestral é de R$ %d", somaTri);
-		logger.log(Level.INFO, mensagem);
+		customLogger.log(Level.INFO, () -> "O gasto do primeiro trimestre foi de R$ " + df.format(somaTri));
 		return somaTri;
 	}
+	
 
 }
