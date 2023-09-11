@@ -5,65 +5,25 @@ import java.util.Scanner;
 public class Exercicio6 {
 
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
-		
-		int valorInicial = 0;
-		int valorFinal = 0;
-		int resultadoSoma = 0;
-		int primeiroMultiplo = 0;
-		int ultimoMultiplo = 0;
-		
-		System.out.println("Informe o valor inicial do intervalo\n");
-		valorInicial = sc.nextInt();
-		System.out.println("\n\nInforme o valor final do intervalo\n");
-		valorFinal = sc.nextInt();
-		
-		if(valorFinal < valorInicial || valorFinal - valorInicial <= 100) {
-			System.out.println("\n\nValor final do intervalo deve ser maior que o valor inicial e/ou\n" 
-			+ " o intervalo deve ter mais de 100 numeros.");
-		}
-		else{
-			
-			for(int i = valorInicial; i <= valorFinal; i++) {
-				int numeroCorrente = i;			
-						if(numeroCorrente % 2 == 0)
-						{	
-							int aux = 0;	
-							while(numeroCorrente > 0)
-							{
-								aux = aux + numeroCorrente % 10;
-								numeroCorrente = numeroCorrente / 10;
-							}
 
-							if(aux % 3 == 0)
-							{						
-								System.out.println(i + " é multiplo de 6\n");
+		double alunosgeral;
+		double disciplina1;
+		double disciplina2;
+		double media;
 
-								if(primeiroMultiplo == 0);
-								{
-									primeiroMultiplo = i;									
-								}
-
-								ultimoMultiplo = i;	
-							}
-						}
-					}
-				}
+		System.out.println("Quantos alunos tem na turma? \n");
+		alunosgeral = sc.nextDouble();
+		System.out.println("Na primeira disciplina temos: \n");
+		disciplina1 = sc.nextDouble();
+		System.out.println("Na segunda disciplina temos: \n");
+		disciplina2 = sc.nextDouble();
 		
-		for(int i = primeiroMultiplo; i < primeiroMultiplo + (6 * 3); i = i + 6)
-		{
-			resultadoSoma = resultadoSoma + primeiroMultiplo;
-		}
+		media = disciplina1 * alunosgeral / 100;
+		System.out.println("A media de alunos que estudam na madrugada é: \n\n" + media);
 
-		for(int i = ultimoMultiplo; i > ultimoMultiplo - (6 * 3); i = i - 6);
-		{
-			resultadoSoma = resultadoSoma + ultimoMultiplo;
-		}
 		
-		System.out.println("O Resultado da soma é: " + resultadoSoma);
 		sc.close();
-		
 	}
 }
-		

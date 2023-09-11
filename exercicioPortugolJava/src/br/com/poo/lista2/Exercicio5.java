@@ -3,35 +3,67 @@ package br.com.poo.lista2;
 import java.util.Scanner;
 
 public class Exercicio5 {
-	Scanner sc = new Scanner(System.in);
-	
-	
-	static double hora = 0.0;
-	static double segundo;
-	static double resultado;
-	
 
-
-public static void main(String[] args) {
-
-	pergunta(h);
-	while(hora <=0){
-		hora = hora * (-1);
-		System.out.println("Digite um numero de valor positivo.\n");
+	public static void main(String[] args) {
 		
-		resultado = hora * 3600;
+		Scanner sc = new Scanner(System.in);
+		
+		int valorInicial = 0;
+		int valorFinal = 0;
+		int resultadoSoma = 0;
+		int primeiroMultiplo = 0;
+		int ultimoMultiplo = 0;
+		
+		System.out.println("Informe o valor inicial do intervalo\n");
+		valorInicial = sc.nextInt();
+		System.out.println("\n\nInforme o valor final do intervalo\n");
+		valorFinal = sc.nextInt();
+		
+		if(valorFinal < valorInicial || (valorFinal - valorInicial) <= 100) {
+			System.out.println("\n\nValor final do intervalo deve ser maior que o valor inicial e/ou\n" 
+			+ " o intervalo deve ter mais de 100 numeros.");
+		}
+		else{
 			
-			System.out.println(hora + " hora(s) "+" x  " + 3600 );
-			System.out.println(" é: " + resultado + " segundos.\n\n\n");
+			for(int i = valorInicial; i <= valorFinal; i++) {
+				int numeroCorrente = i;			
+						if(numeroCorrente % 2 == 0)
+						{	
+							int aux = 0;	
+							while(numeroCorrente > 0)
+							{
+								aux = aux + numeroCorrente % 10;
+								numeroCorrente = numeroCorrente / 10;
+							}
+
+							if(aux % 3 == 0)
+							{						
+								System.out.println(i + " é multiplo de 6\n");
+
+								if(primeiroMultiplo == 0);
+								{
+									primeiroMultiplo = i;									
+								}
+
+								ultimoMultiplo = i;	
+							}
+						}
+					}
+				}
+		
+		for(int i = primeiroMultiplo; i < primeiroMultiplo + (6 * 3); i = i + 6)
+		{
+			resultadoSoma = resultadoSoma + primeiroMultiplo;
+		}
+
+		for(int i = ultimoMultiplo; i > ultimoMultiplo - (6 * 3); i = i - 6);
+		{
+			resultadoSoma = resultadoSoma + ultimoMultiplo;
+		}
+		
+		System.out.println("O Resultado da soma é: " + resultadoSoma);
+		sc.close();
+		
 	}
 }
-
-public double pergunta(double h){
-	
-	System.out.println("\nQual a hora que você deseja converter?\n");
-	hora = sc.nextDouble();
-	return hora;
-}
-
-}
-
+		
