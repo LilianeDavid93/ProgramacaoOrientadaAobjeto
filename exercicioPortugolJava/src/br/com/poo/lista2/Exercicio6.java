@@ -19,11 +19,10 @@ public class Exercicio6 {
 		disciplina1 = sc.nextDouble();
 		System.out.println("Na segunda disciplina temos: \n");
 		disciplina2 = sc.nextDouble();
-		
+
 		media = disciplina1 * alunosgeral / 100;
 		System.out.println("A media de alunos que estudam na madrugada é: \n\n" + media);
 
-		
 		sc.close();
 	}
 }

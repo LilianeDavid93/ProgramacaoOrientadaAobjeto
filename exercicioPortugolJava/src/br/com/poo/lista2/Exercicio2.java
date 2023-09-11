@@ -3,7 +3,6 @@ package br.com.poo.lista2;
 import java.util.Scanner;
 import java.util.Calendar;
 
-
 public class Exercicio2 {
 
 	public static void main(String[] args) {
@@ -28,10 +27,8 @@ public class Exercicio2 {
 		if (mes >= Calendar.MONTH) {
 			if (dia >= Calendar.DATE) {
 				idade = idade - 1;
-
 			}
 		}
-
 		System.out.print("Sua idade é: " + idade);
 		sc.close();
 	}
