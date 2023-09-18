@@ -1,9 +1,11 @@
 package br.com.poo.analisedecredito;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -15,19 +17,20 @@ import br.com.poo.analisedecredito.entidades.Produto;
 import br.com.poo.analisedecredito.entidades.Solicitacao;
 import br.com.poo.analisedecredito.entidades.Usuario;
 import br.com.poo.analisedecredito.enums.StatusAnalise;
+import br.com.poo.io.LeituraEscrita;
 
 public class AnaliseCredito {
 
 	static Logger logger = Logger.getLogger(AnaliseCredito.class.getName());
 	static Scanner sc = new Scanner(System.in);
 	static List<Produto> produtos = new ArrayList<>();
-	static Analista analista = new Analista(16, "Paulo");
+	static Analista analista = null;
 	static List<Solicitacao> solicitacoes = new ArrayList<>();
 	static List<Solicitacao> solicitacoesEncerradas = new ArrayList<>();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-		carregarProdutos();
+		carregarRegistros();
 		int opcao;
 
 		do {
@@ -107,7 +110,7 @@ public class AnaliseCredito {
 			logger.log(Level.INFO, "Solicitacao criada com sucesso");
 			return;
 
-		}else if (opcao == 0) {
+		} else if (opcao == 0) {
 			return;
 		} else {
 			logger.log(Level.WARNING, "Opcao invalida");
@@ -116,13 +119,22 @@ public class AnaliseCredito {
 
 	}
 
-	public static void carregarProdutos() {
-		produtos.add(new Produto(1, "Convencional", 100.0, "Visa", 1000.0));
-		produtos.add(new Produto(2, "Internacional", 200.0, "Mastercard", 1000.0));
-		produtos.add(new Produto(3, "Platinum", 250.0, "Visa", 1000.0));
-		produtos.add(new Produto(4, "Infinity Black", 800.0, "Mastercard", 1000.0));
-		produtos.add(new Produto(5, "Gold", 400.0, "Visa", 1000.0));
+	public static void carregarRegistros() throws IOException {
+		Map<String, String> registros = LeituraEscrita.leitor();
+		for (String value : registros.keySet()) {
+			if (registros.get(value).split(",")[0].equals("PRODUTO")) {
+				String linha = registros.get(value);
+				produtos.add(new Produto(Integer.parseInt(linha.split(",")[1]), linha.split(",")[2],
+						Double.parseDouble(linha.split(",")[3]), linha.split(",")[4],
+						Double.parseDouble(linha.split(",")[5])));
+			}
 
+			if (registros.get(value).split(",")[0].equals("ANALISTA")) {
+				String linha = registros.get(value);
+				analista = new Analista(Integer.parseInt(linha.split(",")[1]), linha.split(",")[2]);
+			}
+
+		}
 	}
 
 	public static void fluxoAnalista() {
@@ -162,7 +174,7 @@ public class AnaliseCredito {
 				reprovarSolicitacao(solicitacaoId, analista);
 				break;
 			case 3:
-				for(Solicitacao solicitacao : solicitacoesEncerradas) {
+				for (Solicitacao solicitacao : solicitacoesEncerradas) {
 					logger.log(Level.INFO, solicitacao.toString());
 				}
 				break;
@@ -184,7 +196,7 @@ public class AnaliseCredito {
 					&& solicitacao.getStatus() == StatusAnalise.EM_PROCESSAMENTO
 					&& limiteCredito < solicitacao.getProduto().getLimiteTotalCredito()) {
 
-				solicitacaoAprovar = solicitacao;				
+				solicitacaoAprovar = solicitacao;
 			}
 		}
 
@@ -192,7 +204,7 @@ public class AnaliseCredito {
 			logger.log(Level.WARNING, "Solicitacao nao pode ser aprovada!");
 			return;
 		}
-		
+
 		solicitacoes.remove(solicitacaoAprovar);
 
 		Calendar dataVencimento = Calendar.getInstance();
@@ -209,7 +221,7 @@ public class AnaliseCredito {
 		solicitacaoAprovar.getUsuario().getCartoes().add(cartao);
 		solicitacaoAprovar.setDataFinalizacao(new Date());
 		solicitacoesEncerradas.add(solicitacaoAprovar);
-		
+
 		logger.log(Level.INFO, "Cartao gerado com sucesso. Analista: " + analista.getNome());
 	}
 
@@ -227,7 +239,7 @@ public class AnaliseCredito {
 			logger.log(Level.WARNING, "Solicitacao nao pode ser aprovada!");
 			return;
 		}
-		
+
 		solicitacoes.remove(solicitacaoReprovar);
 
 		solicitacaoReprovar.setStatus(StatusAnalise.REPROVADO);

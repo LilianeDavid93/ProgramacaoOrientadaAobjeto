@@ -1,0 +1,6 @@
+PRODUTO,1,Convencional,100.0,Visa,1000.0
+PRODUTO,2,Internacional,200.0,Visa,2000.0
+PRODUTO,3,Platinum,250.0,Mastercard,10000.0
+PRODUTO,4,Infinity Black,800.0,Visa,15000.0
+PRODUTO,5,Gold,400.0,Mastercard,2000.0
+ANALISTA,14,Joana
