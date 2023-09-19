@@ -1,0 +1,23 @@
+
+SolicitacaoID -378376201
+ Data Criacao: Mon Sep 18 23:08:01 BRT 2023
+ Status: APROVADO
+ Atualizacao Data: Mon Sep 18 23:08:46 BRT 2023
+ Data Finalizacao: Mon Sep 18 23:08:46 BRT 2023
+ UsuariId=547322393
+ analistaId=14
+ produtoId=1
+ usuario=UsuarioID: 547322393
+, Nome completo: LilianeJoia
+, Renda mensal: 150000
+, cpf: 1552458974
+, Telefone: 2458965748
+, Endereco:Mosela
+, Cartoes:[Cartao [cartaoId=181320114, fechamentoCiclo=05, numeroCartao=2098339808, cvv=118.9291969676799, validade=Sun Sep 18 23:08:46 BRT 2033, limiteDeCredito=800.0, usuarioId=547322393, produtoId=1, solicitacaoId=-378376201]]
+ produto=ProdutoId:1
+ Nome: Convencional
+ Anuidade: 100.0
+ Operadora: Visa
+ Limite Total Credito: 1000.0
+ analista=AnalistaId: 14
+ Nome: Joana]

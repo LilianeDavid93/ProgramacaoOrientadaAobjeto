@@ -42,7 +42,7 @@ public class Analista {
 
 	@Override
 	public String toString() {
-		return "Analista [analistaId=" + analistaId + ", nome=" + nome + "]";
+		return "AnalistaId: " + analistaId + "\n" + "Nome: " + nome;
 	}
 	
 	

@@ -38,12 +38,12 @@ public class LeituraEscrita {
 		return registros;
 	}
 
-public static Map<String, Analista> inserirStatus(String solicitacao){
+public static void inserirRegistro(String solicitacao){
 		
 		String linha = "";
 	
 		try {
-			BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + NOME + EXTENSAO, true));
+			BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + "analises" + EXTENSAO, true));
 			buffWriter.append(solicitacao);
 			buffWriter.append(linha + "\n");
 			buffWriter.close();
@@ -51,7 +51,7 @@ public static Map<String, Analista> inserirStatus(String solicitacao){
 			JOptionPane.showInputDialog(null,"Erro ao salvar o cadastro");
 			e.printStackTrace();
 		}
-		return null;
+		
 		
 	}
 }

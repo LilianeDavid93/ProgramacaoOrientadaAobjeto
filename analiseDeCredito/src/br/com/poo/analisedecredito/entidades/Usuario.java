@@ -86,8 +86,8 @@ public class Usuario {
 	
 	@Override
 	public String toString() {
-		return "Usuario [usuarioId=" + usuarioId + ", nomeCompleto=" + nomeCompleto + ", rendaMensal=" + rendaMensal
-				+ ", cpf=" + cpf + ", telefone=" + telefone + ", endereco=" + endereco + ", cartoes=" + cartoes + "]";
+		return "UsuarioID: " + usuarioId + "\n" + "Nome completo: " + nomeCompleto + "\n" +"Renda mensal: " + rendaMensal
+				+ "\n" + "cpf: " + cpf + "\n" + "Telefone: " + telefone + "\n" + "Endereco:" + endereco + "\n" + "Cartoes:" + cartoes ;
 	}	
 	
 }

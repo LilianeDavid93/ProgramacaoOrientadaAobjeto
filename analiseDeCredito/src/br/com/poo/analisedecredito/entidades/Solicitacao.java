@@ -135,10 +135,10 @@ public class Solicitacao {
 
 	@Override
 	public String toString() {
-		return "\nSolicitacao [solicitacaoId=" + solicitacaoId + "\n dataCriacao=" + dataCriacao + "\n status=" + status
-				+ "\n atualizacaoData=" + atualizacaoData + "\n dataFinalizacao=" + dataFinalizacao + "\n usuariId="
-				+ usuariId + "\n analistaId=" + analistaId + "\n produtoId=" + produtoId + "\n usuario=" + usuario
-				+ "\n produto=" + produto + "\n analista=" + analista + "]";
+		return "\nSolicitacaoID " + solicitacaoId  + "\nData Criacao: " + dataCriacao + "\nStatus: " + status
+				+ "\nAtualizacao Data: " + atualizacaoData + "\nData Finalizacao: " + dataFinalizacao + "\nUsuariId="
+				+ usuariId + "\n analistaId=" + analistaId + "\nProdutoId=" + produtoId + "\nUsuario=" + usuario
+				+ "\nProduto=" + produto + "\nAnalista=" + analista + "]";
 	}	
 	
 }

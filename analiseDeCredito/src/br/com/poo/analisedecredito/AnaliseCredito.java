@@ -197,6 +197,7 @@ public class AnaliseCredito {
 					&& limiteCredito < solicitacao.getProduto().getLimiteTotalCredito()) {
 
 				solicitacaoAprovar = solicitacao;
+				
 			}
 		}
 
@@ -221,7 +222,7 @@ public class AnaliseCredito {
 		solicitacaoAprovar.getUsuario().getCartoes().add(cartao);
 		solicitacaoAprovar.setDataFinalizacao(new Date());
 		solicitacoesEncerradas.add(solicitacaoAprovar);
-
+		LeituraEscrita.inserirRegistro(solicitacaoAprovar.toString());
 		logger.log(Level.INFO, "Cartao gerado com sucesso. Analista: " + analista.getNome());
 	}
 
@@ -246,6 +247,7 @@ public class AnaliseCredito {
 		solicitacaoReprovar.setAtualizacaoData(new Date());
 		solicitacaoReprovar.setDataFinalizacao(new Date());
 		solicitacoesEncerradas.add(solicitacaoReprovar);
+		LeituraEscrita.inserirRegistro(solicitacaoReprovar.toString());
 		logger.log(Level.INFO, "Solicitacao reprovada. Analista: " + analista.getNome());
 	}
 }
